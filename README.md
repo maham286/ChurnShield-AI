@@ -30,6 +30,7 @@
 
 ## 📁 Repository Structure
 
+```text
 ChurnShield-AI/
 ├── data/
 │   ├── raw_telecom_churn.csv        # Baseline raw customer dataset
