@@ -9,6 +9,36 @@
 
 ---
 
+## 🖼️ Dashboard Preview
+
+<p align="center">
+  <img src="assets/dashboard_kpis.png" width="95%" alt="Executive Overview & KPIs"><br>
+  <sub><b>Executive Overview & Core Risk Metrics</b></sub>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="assets/risk_visuals.png" width="95%" alt="Risk Matrix & Analytics Visuals"><br>
+  <sub><b>Portfolio Risk Distribution & Tenure Analysis</b></sub>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="assets/at_risk_roster.png" width="95%" alt="Prioritized At-Risk Customer Directory"><br>
+  <sub><b>Prioritized At-Risk Customer Directory Table</b></sub>
+</p>
+
+<br>
+
+<p align="center">
+  <img src="assets/retention_simulator.png" width="95%" alt="Interactive Retention ROI Simulator"><br>
+  <sub><b>Interactive Retention Campaign ROI Simulator</b></sub>
+</p>
+
+---
+
 ## 🌟 Key Features
 
 * **Real-time Predictive Scoring:** Instant risk classification (Low, Medium, High) for uploaded customer batches using trained XGBoost / LightGBM pipelines.
@@ -32,10 +62,15 @@
 
 ```text
 ChurnShield-AI/
+├── assets/
+│   ├── dashboard_kpis.png         # Main dashboard KPI banner screenshot
+│   ├── risk_visuals.png           # Risk distribution donut & scatter plot
+│   ├── at_risk_roster.png         # Filterable customer directory screenshot
+│   └── retention_simulator.png    # Campaign ROI simulator screenshot
 ├── data/
-│   ├── raw_telecom_churn.csv        # Baseline raw customer dataset
-│   ├── processed_churn_data.csv    # Cleaned customer dataset
-│   └── engineered_churn_data.csv   # Feature-engineered dataset
+│   ├── raw_telecom_churn.csv      # Baseline raw customer dataset
+│   ├── processed_churn_data.csv  # Cleaned customer dataset
+│   └── engineered_churn_data.csv # Feature-engineered dataset
 ├── notebooks/
 │   ├── 01_eda_and_cleansing.ipynb        # Exploratory data analysis & data cleaning
 │   ├── 02_feature_engineering.ipynb   # Encoding, scaling & domain feature creation
@@ -55,17 +90,3 @@ ChurnShield-AI/
 ├── app.py                         # Streamlit executive dashboard
 ├── README.md                      # Comprehensive project documentation
 └── requirements.txt               # Dependencies and library versions
-
-## 🖼️ Dashboard Preview
-
-### Executive Overview & KPIs
-![Executive KPIs](assets/dashboard_kpis.png)
-
-### Risk Matrix & Analytics Visuals
-![Risk Visuals](assets/risk_visuals.png)
-
-### Prioritized At-Risk Customer Directory
-![At Risk Roster](assets/at_risk_roster.png)
-
-### Interactive Retention ROI Simulator
-![Retention Simulator](assets/retention_simulator.png)
