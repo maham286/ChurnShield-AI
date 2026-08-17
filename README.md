@@ -55,3 +55,17 @@ ChurnShield-AI/
 ├── app.py                         # Streamlit executive dashboard
 ├── README.md                      # Comprehensive project documentation
 └── requirements.txt               # Dependencies and library versions
+
+## 🖼️ Dashboard Preview
+
+### Executive Overview & KPIs
+![Executive KPIs](assets/dashboard_kpis.png)
+
+### Risk Matrix & Analytics Visuals
+![Risk Visuals](assets/risk_visuals.png)
+
+### Prioritized At-Risk Customer Directory
+![At Risk Roster](assets/at_risk_roster.png)
+
+### Interactive Retention ROI Simulator
+![Retention Simulator](assets/retention_simulator.png)
