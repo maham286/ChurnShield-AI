@@ -6,7 +6,7 @@ import os
 import plotly.express as px
 import plotly.graph_objects as go
 
-# 1. Page Configuration
+# page configuration
 st.set_page_config(
     page_title="ChurnShield AI — Executive Analytics",
     page_icon="🛡️",
@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. Custom Modern Dark Teal Theme (CSS Injection)
+# css injected for custom theme
 st.markdown("""
 <style>
     /* Global Background & Typography */
@@ -83,7 +83,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# 3. Model Loader
+# model loader
 @st.cache_resource
 def load_models():
     model_path = 'saved_models/xgboost_churn_model.pkl'
@@ -93,7 +93,7 @@ def load_models():
 
 model = load_models()
 
-# 4. App Header Banner
+# header banner
 st.markdown("""
 <div class="header-banner">
     <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -112,7 +112,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# 5. Data Handler
+# data handling 
 st.sidebar.markdown("### ⚙️ Engine Controls")
 uploaded_file = st.sidebar.file_uploader("Ingest Customer Data (.csv)", type=["csv"])
 
@@ -131,7 +131,7 @@ raw_df = get_data(uploaded_file)
 if raw_df is not None:
     df = raw_df.copy()
     
-    # Feature Engineering Pipeline
+    # feature engineering pipeline
     df_clean = df.copy()
     if 'TotalCharges' in df_clean.columns:
         df_clean['TotalCharges'] = pd.to_numeric(df_clean['TotalCharges'].replace(' ', np.nan), errors='coerce')
@@ -152,7 +152,7 @@ if raw_df is not None:
         
     df_encoded = pd.get_dummies(df_clean, columns=cat_cols, drop_first=True)
     
-    # Model Scoring Pipeline
+    # model scoring pipeline
     if model is not None:
         model_features = model.feature_names_in_
         for col in model_features:
@@ -167,7 +167,7 @@ if raw_df is not None:
         df['Churn_Probability'] = 0.25
         df['Risk_Level'] = 'Low'
 
-    # Key Metrics Calculations
+    # key metrics calculations
     total_cust = len(df)
     high_risk_df = df[df['Risk_Level'] == 'High']
     med_risk_df = df[df['Risk_Level'] == 'Medium']
@@ -175,7 +175,7 @@ if raw_df is not None:
     at_risk_mrr = high_risk_df['MonthlyCharges'].sum() if 'MonthlyCharges' in df.columns else 0
     at_risk_arr = at_risk_mrr * 12
 
-    # 6. Executive KPI Cards Grid
+    # KPI cards grid
     c1, c2, c3, c4 = st.columns(4)
     
     with c1:
@@ -216,7 +216,8 @@ if raw_df is not None:
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # 7. Interactive Workspace Tabs
+    # tabs
+    # tsabs
     tab1, tab2, tab3 = st.tabs(["📊 Risk Matrix & Visuals", "📋 At-Risk Target Roster", "⚡ Retention Simulator"])
 
     with tab1:
